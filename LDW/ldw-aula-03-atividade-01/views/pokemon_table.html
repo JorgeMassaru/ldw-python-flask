@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Tabela Pokémon</h1>
+<form method="POST">
+    <div class="mb-3">
+        <label for="pokemon_name" class="form-label">Nome Pokémon</label>
+        <input type="text" class="form-control" id="pokemon_name" name="pokemon_name" required>
+    </div>
+    <div class="mb-3">
+        <label for="pokemon_type" class="form-label">Tipo Pokémon</label>
+        <input type="text" class="form-control" id="pokemon_type" name="pokemon_type" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Adicionar Pokémon</button>
+</form>
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Tipo</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for name, type in pokemon_dict.items() %}
+        <tr>
+            <td>{{ name }}</td>
+            <td>{{ type }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
