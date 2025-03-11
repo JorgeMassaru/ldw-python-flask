@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1> Bem-Vindo a homepage! </h1>
+    <h2> Iniciando estudos com Flask! </h2>
+    <br>
+    <a href="{{url_for('games')}}"> Página de Games </a> <!--Direcionando pro nome da função, n para a rota-->
+    <img src="{{url_for('static', filename='images/main.jpg')}}" alt="The Games">
+{% endblock content %}

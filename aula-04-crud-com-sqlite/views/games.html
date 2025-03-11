@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1> Bem-Vindo a página de games! </h1>
+    <hr>
+
+    {# Comentário em jinja2 #}
+    {% for key, value in game.items() %} 
+    {{key}} : {{value}} <br>
+    {% endfor %}
+
+    <p> O jogo {{game['titulo']}} está sendo jogado por: </p>
+    <ol>
+        {% for j in jogadores: %}
+        <li> {{j}} </li>
+        {% endfor %}
+    </ol>
+
+    <hr>
+    <h4> Entrar no Jogo: </h4>
+    <form action="{{url_for('games')}}" method="POST"> {# Envia os dados para a funcao games, method=POST pq vai receber variaveis #}
+        <label> Jogador: </label>
+        <input type="text" name="jogador">
+        <input type="submit" value="Entrar">
+    </form>
+    <hr>
+    <p> O jogo {{game['titulo']}} tem {{2025 - game['ano']}} anos</p>
+{% endblock content %}

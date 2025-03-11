@@ -1,0 +1,50 @@
+{% extends 'base.html'%} {% block content %}
+
+<details>
+    <summary>[ Cadastrar novo jogo ]</summary>
+    <div class="col-md-4">
+        <form action="{{url_for('estoque')}}" method="POST">
+            <input type="text" name="titulo" placeholder="Título" class="form-control" required>
+            <input type="number" name="ano" placeholder="Ano" class="form-control" required>
+            <input type="text" name="categoria" placeholder="Categoria" class="form-control" required>
+            <input type="text" name="plataforma" placeholder="Plataforma" class="form-control" required>
+            <input type="number" name="preco" placeholder="Preço" class="form-control" required>
+            <input type="number" name="quantidade" placeholder="Quantidade" class="form-control" required>
+            <input type="submit" value="Cadastrar" class="btn btn-success">
+            <input type="reset" value="limpar" class="btn btn-danger">
+        </form>
+    </div>
+</details>
+<hr>
+
+<h2>Controle de Estoque</h2>
+<hr />
+<table class="table table-bordered table hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Título</th>
+      <th>Ano</th>
+      <th>Categora</th>
+      <th>Plataforma</th>
+      <th>Preço</th>
+      <th>Quantidade</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for game in gamesestoque %}
+
+    <tr>
+      <td>{{game.titulo}}</td>
+      <td>{{game.ano}}</td>
+      <td>{{game.categoria}}</td>
+      <td>{{game.plataforma}}</td>
+      <td>{{game.preco}}</td>
+      <td>{{game.quantidade}}</td>
+    </tr>
+
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}
