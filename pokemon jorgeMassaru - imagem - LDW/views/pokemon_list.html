@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Pokémon List</h1>
+<form method="POST">
+    <div class="mb-3">
+        <label for="pokemon_name" class="form-label">Nome Pokémon</label>
+        <input type="text" class="form-control" id="pokemon_name" name="pokemon_name" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Adicionar Pokémon</button>
+</form>
+<ul class="list-group mt-4">
+    {% for pokemon in pokemon_list %}
+    <li class="list-group-item">{{ pokemon }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
